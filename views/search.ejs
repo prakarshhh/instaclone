@@ -1,14 +1,28 @@
 <% include ./partials/header.ejs %>
-    <div class="w-full min-h-screen bg-zinc-900 px-4 py-5">
-        <div class="border-2 border-zinc-800 flex items-center justify-between px-2 py-1 rounded-md">
-            <i class="text-white ri-search-line"></i>
-            <input class="input ml-1 w-full bg-zinc-900 outline-none text-zinc-400" type="text"
-                placeholder="search username">
-        </div>
-        <div class="users">
-
-        </div>
+<div class="w-full min-h-screen bg-[#f0f0f0] px-6 py-8">
+  
+    <div class="border rounded-lg bg-white shadow-lg flex items-center px-4 py-2 mb-6">
+        <i class="text-gray-500 ri-search-line text-xl"></i>
+        <input class="ml-3 w-full bg-transparent text-gray-800 placeholder-gray-500 outline-none" type="text"
+            placeholder="Search username">
     </div>
+    
+    
+    <div class="users space-y-4">
+      
+        <div class="user-item bg-white p-4 rounded-lg flex items-center gap-4 shadow-md">
+            <div class="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
+                <img class="w-full h-full object-cover" src="/images/example-user.jpg" alt="User">
+            </div>
+            <div class="flex-1">
+                <h4 class="text-gray-800 text-lg font-semibold">Username</h4>
+                <p class="text-gray-600 text-sm">Additional info</p>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
 
     <script>
         var inp = document.querySelector(".input")
@@ -21,18 +35,21 @@
                         let clutter = "";
 
                         result.forEach((item) => {
-                            clutter += `<a href="/profile/${item.username}" class="outline-none">
-            <div class="text-white flex items-center gap-2 mt-5">
-                <div class="image w-[11vw] h-[11vw] rounded-full bg-sky-100 overflow-hidden">
-                    <img src="/images/uploads/${item.picture}" alt="">
-                    </div>
-                <div class="text">
-                    <h3>${item.username}</h3>
-                    <h4 class="text-xs opacity-30 leading-none">${item.name}</h4>
+    clutter += `
+        <a href="/profile/${item.username}" class="block rounded-lg bg-white shadow-md overflow-hidden mt-4">
+            <div class="flex items-center p-4 gap-4 hover:bg-[#f0f0f0] transition-colors">
+                <div class="image w-16 h-16 rounded-full bg-gray-200 overflow-hidden">
+                    <img src="/images/uploads/${item.picture}" alt="${item.username}" class="w-full h-full object-cover">
                 </div>
-            </div>            
-        </a>`
-                        })
+                <div class="text">
+                    <h3 class="text-gray-800 text-lg font-semibold">${item.username}</h3>
+                    <h4 class="text-gray-600 text-sm leading-none">${item.name}</h4>
+                </div>
+            </div>
+        </a>
+    `;
+});
+
 
                         document.querySelector(".users")
                             .innerHTML = clutter;

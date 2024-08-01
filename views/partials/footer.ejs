@@ -1,14 +1,25 @@
 <% if(footer){ %>
-    <div class="footer text-white flex justify-between items-center w-full fixed bottom-0 z-[10] bg-zinc-900 px-10 py-3">
-        <a href="/feed"><i class="text-[1.4rem] ri-home-line"></i></a>
-        <a href="/search"><i class="text-[1.4rem] ri-search-line"></i></a>
-        <a href="/upload"><i class="text-[1.4rem] ri-add-box-line"></i></a>
-        <a href="/profile">
-          <div class="w-8 h-8 bg-zinc-300 rounded-full overflow-hidden">
-            <img class="w-full h-full object-cover" src="/images/uploads/<%= user.picture %>" alt="">
-          </div>
-        </a>
-      </div>
+  <div class="footer text-white flex justify-around items-center w-full fixed bottom-0 z-20 bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-3 shadow-lg">
+    <a href="/feed" class="footer-icon hover:text-yellow-400 transition-colors">
+        <i class="text-2xl ri-home-line"></i>
+        <span class="block text-xs mt-1">Home</span>
+    </a>
+    <a href="/search" class="footer-icon hover:text-yellow-400 transition-colors">
+        <i class="text-2xl ri-search-line"></i>
+        <span class="block text-xs mt-1">Search</span>
+    </a>
+    <a href="/upload" class="footer-icon hover:text-yellow-400 transition-colors">
+        <i class="text-2xl ri-add-box-line"></i>
+        <span class="block text-xs mt-1">Upload</span>
+    </a>
+    <a href="/profile" class="footer-icon hover:text-yellow-400 transition-colors">
+        <div class="w-10 h-10 bg-zinc-400 rounded-full border-2 border-yellow-500 overflow-hidden flex items-center justify-center">
+            <img class="w-full h-full object-cover" src="/images/uploads/<%= user.picture %>" alt="Profile Picture">
+        </div>
+        <span class="block text-xs mt-1">Profile</span>
+    </a>
+</div>
+
 <% } %>
 
 
